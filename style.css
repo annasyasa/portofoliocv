@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 
-
 :root {
     --primary-color: #000000;
     --secondary-color: violet;
@@ -24,31 +23,36 @@ html {
 
 body {
     color: var(--white);
-    font-family: sans-serif;
-    
+    font-family: 'Playfair Display', serif;
+    background-color: #0B192C;
 }
 
-
+/* Section Container */
 .section__container {
     max-width: var(--max-width);
     margin: auto;
-    padding: 9rem 1rem;
+    padding: 4rem 1rem;
 }
 
+/* Section Titles */
 .section__title {
     font-size: 2rem;
     font-weight: 600;
     text-align: center;
+    margin-bottom: 1rem;
 }
 
 .section__title span {
     color: var(--secondary-color);
 }
 
+/* Section Subtitle */
 .section__subtitle {
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-weight: 500;
     text-align: center;
+    color: var(--text-light);
+    margin-bottom: 2rem;
 }
 
 a {
@@ -61,34 +65,40 @@ a {
 }
 
 img {
-    width: 50%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
 }
 
+/* Navigation */
 nav {
     position: absolute;
     width: 100%;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    max-width: var(--max-width);
     padding: 1rem;
     display: flex;
-    align-items: center
-    
+    align-items: center;
+}
+
+nav .nav__logo a {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--secondary-color);
 }
 
 nav .nav__logo a span {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--secondary-color);
-    
+    color: var(--primary-color);
 }
 
+/* Header Section */
 header {
     height: 50vh;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
+    color: var(--white);
 }
 
 .header__container {
@@ -118,15 +128,16 @@ header {
     line-height: 3rem;
 }
 
-.about,
-.project {
+/* About Section */
+.about {
     background-color: var(--text-dark);
+    padding: 3rem 0;
 }
 
 .about__container {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 2rem;
 }
 
 .about__image,
@@ -140,6 +151,7 @@ header {
 
 .about__image img {
     max-width: 350px;
+    border-radius: 10px;
 }
 
 .about__details {
@@ -148,49 +160,76 @@ header {
     text-align: center;
 }
 
-/* Services */
+/* Services Section */
 .service {
     background-color: var(--primary-color);
+    padding: 3rem 0;
 }
 
-.service__grid,
-.project__grid {
+.service__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.service__grid {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    gap: 1rem;
-    margin-top: 3rem;
+    gap: 2rem;
+    margin-top: 2rem;
 }
 
 .service__card {
     display: grid;
-    align-items: flex-start;
+    align-items: center;
+    justify-items: center;
     gap: 1rem;
     padding: 2rem;
     background-color: var(--text-dark);
     border-radius: 5px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.service__card:hover {
+    transform: scale(1.05);
 }
 
 .service__card i {
-    font-size: 1.5rem;
+    font-size: 2rem;
+    color: var(--secondary-color);
 }
 
 .service__card h4 {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-weight: 500;
 }
 
-.service__card p {
-    color: var(--text-light);
-}
-
 .service__card .read__more {
-    width: min-content;
     padding: 0.5rem 1rem;
     color: var(--text-light);
-    font-size: 0.8rem;
+    font-size: 1rem;
     border-radius: 7px;
     background-color: darkslateblue;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.service__card .read__more:hover {
+    background-color: var(--secondary-color-dark);
+}
+
+/* Projects Section */
+.project {
+    background-color: var(--text-dark);
+    padding: 3rem 0;
+}
+
+.project__grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
 }
 
 .project__card {
@@ -201,16 +240,26 @@ header {
 }
 
 .project__card img {
-    transition: scale 0.3s;
+    transition: transform 0.3s ease;
 }
 
 .project__card:hover img {
-    scale: 1.1;
+    transform: scale(1.1);
 }
 
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 50px;
+}
+
+/* Media Queries */
 @media (min-width: 640px) {
     .section__title {
-        font-size: 2.5rem;
+        font-size: 3rem;
     }
 
     .header__container p {
@@ -220,10 +269,6 @@ header {
     .header__container h1 {
         font-size: 4rem;
         line-height: 4rem;
-    }
-
-    .action__btns {
-        gap: 2rem;
     }
 
     .about__container {
@@ -241,6 +286,10 @@ header {
     .service__grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 2rem;
+    }
+
+    .service__card {
+        padding: 1.5rem;
     }
 }
 
